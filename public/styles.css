@@ -1,0 +1,95 @@
+/* ===== Base Style ===== */
+body {
+  font-family: 'Quicksand', sans-serif;
+  padding: 20px;
+  margin: 0;
+  background-image: url('https://tse3.mm.bing.net/th?id=OIP.ca_3knkoO5BWLXkw7RVDRwHaE8&pid=Api');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+input, button {
+  padding: 10px;
+  margin: 10px 5px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+}
+
+button {
+  cursor: pointer;
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff7f00;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  background-color: #ffcc99;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.navbar a:hover {
+  color: #d35400;
+}
+
+/* ===== Recipe Cards ===== */
+.recipe-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #f4a261;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.recipe-card img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* ===== Grid Container for Search Results ===== */
+#resultsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+/* ===== Favorites Container ===== */
+#favoritesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
