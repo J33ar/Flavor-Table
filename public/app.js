@@ -65,7 +65,11 @@ if (searchBtn) {
     resultsDiv.innerHTML = ''; // clear old results
 
     if (!input) {
+<<<<<<< HEAD
       resultsDiv.textContent = 'Please enter some ingredients.';
+=======
+      resultsDiv.innerHTML = '<p style="color: white;">Please enter some ingredients.</p>';
+>>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
       return;
     }
 
@@ -74,7 +78,11 @@ if (searchBtn) {
       const data = await response.json();
 
       if (data.length === 0) {
+<<<<<<< HEAD
         resultsDiv.textContent = 'No recipes found.';
+=======
+        resultsDiv.innerHTML = '<p style="color: white;">No recipes found.</p>';
+>>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
         return;
       }
 
@@ -93,8 +101,12 @@ if (searchBtn) {
         // save btn
         card.querySelector('.saveBtn').addEventListener('click', async () => {
            const ingredients = recipe.usedIngredients
+<<<<<<< HEAD
           .concat(recipe.missedIngredients)
           .map(i => i.name);
+=======
+          .concat(recipe.missedIngredients);
+>>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
 
         const recipeToSave = {
           title: recipe.title,
@@ -193,6 +205,7 @@ if (randomBtn) {
 // }
 
 //==================== FAVORITES PostgreSQL ======================
+<<<<<<< HEAD
 const favoritesContainer = document.getElementById('favoritesContainer');
 
 if (favoritesContainer) {
@@ -238,3 +251,100 @@ if (favoritesContainer) {
     });
 }
 
+=======
+document.addEventListener('DOMContentLoaded', () => {
+  const favoritesContainer = document.getElementById('favoritesContainer');
+
+  if (favoritesContainer) {
+    fetch('/recipes')
+      .then(response => response.json())
+      .then(favorites => {
+        if (favorites.length === 0) {
+        favoritesContainer.innerHTML = '<p style="color: white;">No favorite recipes yet.</p>';
+        } else {
+          favorites.forEach(recipe => {
+            const card = document.createElement('div');
+            card.classList.add('recipe-card');
+
+            card.innerHTML = `
+              <h2>${recipe.title}</h2>
+              <img src="${recipe.image}" alt="${recipe.title}" width="200"><br>
+              <p><strong>Instructions:</strong> ${recipe.instructions || 'No instructions available'}</p>
+              <p><strong>Ingredients:</strong> ${Array.isArray(recipe.ingredients) ? recipe.ingredients.join(', ') : recipe.ingredients}</p>
+              <p><strong>Ready in:</strong> ${recipe.readyin} minutes</p>
+              <button class="removeBtn">Remove</button>
+              <button class="editBtn">Edit</button>
+            `;
+
+            card.querySelector('.removeBtn').addEventListener('click', () => {
+              fetch(`/recipes/${recipe.id}`, { method: 'DELETE' })
+                .then(res => {
+                  if (res.ok) card.remove();
+                  else alert('Failed to delete recipe');
+                })
+                .catch(err => console.error('Delete failed:', err));
+            });
+
+            card.querySelector('.editBtn').addEventListener('click', () => {
+              document.getElementById('editTitle').value = recipe.title;
+              document.getElementById('editInstructions').value = recipe.instructions;
+              document.getElementById('editIngredients').value = Array.isArray(recipe.ingredients)
+                ? recipe.ingredients.join(', ')
+                : recipe.ingredients;
+              document.getElementById('editReadyin').value = recipe.readyin;
+              document.getElementById('editImage').value = recipe.image;
+
+              document.getElementById('editForm').dataset.recipeId = recipe.id;
+              $('#editModal').modal('show');
+            });
+
+            favoritesContainer.appendChild(card);
+          });
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching favorites:', error);
+        favoritesContainer.textContent = 'Failed to load favorite recipes.';
+      });
+
+    document.getElementById('closeModal').addEventListener('click', () => {
+      document.getElementById('editModal').style.display = 'none';
+    });
+
+    document.getElementById('editForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const id = form.dataset.recipeId;
+
+      const updatedRecipe = {
+        title: document.getElementById('editTitle').value,
+        image: document.getElementById('editImage').value,
+        instructions: document.getElementById('editInstructions').value,
+        ingredients: document.getElementById('editIngredients').value
+          .split(',')
+          .map(i => i.trim()),
+        readyin: parseInt(document.getElementById('editReadyin').value)
+      };
+
+      try {
+        const res = await fetch(`/recipes/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updatedRecipe)
+        });
+
+        if (res.ok) {
+          console.log('Recipe updated!');
+
+          window.location.reload();
+        } else {
+          console.log('Failed to update recipe.');
+        }
+      } catch (error) {
+        console.error('Network error:', error);
+        console.log('Network error while updating.');
+      }
+    });
+  }
+});
+>>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)

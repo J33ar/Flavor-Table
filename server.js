@@ -16,9 +16,19 @@ app.use(express.static('public'));
 //Routes
 const homeRoute = require('./routes/home');
 const recipesRoutes = require ('./routes/recipes');
+<<<<<<< HEAD
 
 app.use('/',homeRoute);
 app.use('/recipes',recipesRoutes);
+=======
+const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/users'); 
+
+app.use('/',homeRoute);
+app.use('/recipes',recipesRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/users', userRoutes);
+>>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
 
 
 pool.connect()
