@@ -65,11 +65,9 @@ if (searchBtn) {
     resultsDiv.innerHTML = ''; // clear old results
 
     if (!input) {
-<<<<<<< HEAD
-      resultsDiv.textContent = 'Please enter some ingredients.';
-=======
       resultsDiv.innerHTML = '<p style="color: white;">Please enter some ingredients.</p>';
->>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
+      resultsDiv.textContent = 'Please enter some ingredients.';
+      resultsDiv.innerHTML = '<p style="color: white;">Please enter some ingredients.</p>';
       return;
     }
 
@@ -78,11 +76,9 @@ if (searchBtn) {
       const data = await response.json();
 
       if (data.length === 0) {
-<<<<<<< HEAD
-        resultsDiv.textContent = 'No recipes found.';
-=======
         resultsDiv.innerHTML = '<p style="color: white;">No recipes found.</p>';
->>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
+        resultsDiv.textContent = 'No recipes found.';
+        resultsDiv.innerHTML = '<p style="color: white;">No recipes found.</p>';
         return;
       }
 
@@ -101,12 +97,10 @@ if (searchBtn) {
         // save btn
         card.querySelector('.saveBtn').addEventListener('click', async () => {
            const ingredients = recipe.usedIngredients
-<<<<<<< HEAD
+          .concat(recipe.missedIngredients);
           .concat(recipe.missedIngredients)
           .map(i => i.name);
-=======
           .concat(recipe.missedIngredients);
->>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
 
         const recipeToSave = {
           title: recipe.title,
@@ -205,7 +199,6 @@ if (randomBtn) {
 // }
 
 //==================== FAVORITES PostgreSQL ======================
-<<<<<<< HEAD
 const favoritesContainer = document.getElementById('favoritesContainer');
 
 if (favoritesContainer) {
@@ -250,8 +243,6 @@ if (favoritesContainer) {
       favoritesContainer.textContent = 'Failed to load favorite recipes.';
     });
 }
-
-=======
 document.addEventListener('DOMContentLoaded', () => {
   const favoritesContainer = document.getElementById('favoritesContainer');
 
@@ -347,4 +338,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
->>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)

@@ -46,19 +46,6 @@ Flavor-Table/
 
 ---
 
-## 🗄️ Database Schema
-
-Using PostgreSQL, the `recipes` table is structured as:
-
-```sql
-CREATE TABLE recipes (
-  id SERIAL PRIMARY KEY,
-  title VARCHAR NOT NULL,
-  image TEXT,
-  instructions TEXT,
-  ingredients JSONB,
-  readyin INTEGER
-=======
 ## 🗄️ Database Schema: `users` Table
 
 ```sql

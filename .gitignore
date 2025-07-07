@@ -79,13 +79,8 @@ web_modules/
 .nuxt
 dist
 
-<<<<<<< HEAD
-=======
 # Gatsby files
 .cache/
-
-
->>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
 # vuepress build output
 .vuepress/dist
 
@@ -99,8 +94,3 @@ dist
 .dynamodb/
 
 # TernJS port file
-<<<<<<< HEAD
-.tern-port
-=======
-.tern-port
->>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)

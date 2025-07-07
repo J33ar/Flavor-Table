@@ -6,11 +6,8 @@ const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
 
 
 const API_KEY = process.env.SPOONACULAR_API_KEY;
-
-<<<<<<< HEAD
-=======
 //random
->>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
+
 router.get('/random', async (req, res) => {
   try {
     const response = await axios.get(
@@ -34,7 +31,6 @@ router.get('/random', async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
 router.get('/search', async (req, res) => {
     const ingredients = req.query.ingredients;
 
@@ -61,7 +57,6 @@ router.get('/search', async (req, res) => {
         console.error('Error searching recipes:', error.response?.data || error.message);
         res.status(500).json({ error: 'Failed to search recipes' });
     }
-=======
 //search
 router.get('/search', async (req, res) => {
   const ingredients = req.query.ingredients;
@@ -117,7 +112,6 @@ router.get('/search', async (req, res) => {
     console.error('Error searching recipes:', error.response?.data || error.message);
     res.status(500).json({ error: 'Failed to search recipes' });
   }
->>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
 });
 
 //Get all recipes
@@ -149,7 +143,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
 // PUT update a recipe
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
@@ -161,7 +154,6 @@ router.put('/:id', async (req, res) => {
     );
     res.json(result.rows[0]);
   } catch (err) {
-=======
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
   let { title, image, instructions, ingredients, readyin } = req.body;
@@ -175,7 +167,6 @@ router.put('/:id', async (req, res) => {
     res.json(result.rows[0]);
   } catch (err) {
     console.error('Error during update:', err); 
->>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
     res.status(500).json({ error: 'Failed to update recipe' });
   }
 });

@@ -59,10 +59,8 @@ button:hover {
 }
 
 .navbar a:hover {
-<<<<<<< HEAD
-=======
     text-decoration: none;
->>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
+    text-decoration: none;
   color: #d35400;
 }
 
