@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # 🧂 Flavor Table
 
 **Flavor Table** is a recipe discovery app that lets users search for recipes using ingredients, explore random meals, view detailed instructions, and save favorites using a PostgreSQL database.
@@ -366,4 +364,4 @@ Yes — understanding how JWTs work, especially how to protect routes using midd
 - [JWT Guide](https://jwt.io/)
 - [bcrypt npm](https://www.npmjs.com/package/bcrypt)
 - [Render Deployment Docs](https://render.com/docs)
->>>>>>> 1b87346 (Add authentication, JWT middleware, and user profile routes)
+
