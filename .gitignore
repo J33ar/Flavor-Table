@@ -81,8 +81,6 @@ dist
 
 # Gatsby files
 .cache/
-
-
 # vuepress build output
 .vuepress/dist
 
@@ -96,4 +94,3 @@ dist
 .dynamodb/
 
 # TernJS port file
-.tern-port

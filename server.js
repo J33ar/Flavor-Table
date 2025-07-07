@@ -16,6 +16,9 @@ app.use(express.static('public'));
 //Routes
 const homeRoute = require('./routes/home');
 const recipesRoutes = require ('./routes/recipes');
+
+app.use('/',homeRoute);
+app.use('/recipes',recipesRoutes);
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users'); 
 
