@@ -1,4 +1,4 @@
-# 🧂 Flavor Table – User Authentication & Deployment
+# 🧂 Flavor Table – User Authentication & Deployment.
 
 **Flavor Table** is now extended to include user authentication, route protection using JWT, and is ready for deployment to Render.com.
 
