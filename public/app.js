@@ -97,10 +97,8 @@ if (searchBtn) {
         // save btn
         card.querySelector('.saveBtn').addEventListener('click', async () => {
            const ingredients = recipe.usedIngredients
-          .concat(recipe.missedIngredients);
           .concat(recipe.missedIngredients)
           .map(i => i.name);
-          .concat(recipe.missedIngredients);
 
         const recipeToSave = {
           title: recipe.title,
@@ -199,50 +197,6 @@ if (randomBtn) {
 // }
 
 //==================== FAVORITES PostgreSQL ======================
-const favoritesContainer = document.getElementById('favoritesContainer');
-
-if (favoritesContainer) {
-  fetch('/recipes')
-    .then(response => response.json())
-    .then(favorites => {
-      if (favorites.length === 0) {
-        favoritesContainer.textContent = 'No favorite recipes yet.';
-      } else {
-        favorites.forEach(recipe => {
-          const card = document.createElement('div');
-          card.classList.add('recipe-card');
-
-          card.innerHTML = `
-            <h2>${recipe.title}</h2>
-            <img src="${recipe.image}" alt="${recipe.title}" width="200"><br>
-            <button class="removeBtn">Remove</button>
-            
-          `;
-
-          // delete btn
-          card.querySelector('.removeBtn').addEventListener('click', () => {
-            fetch(`/recipes/${recipe.id}`, {
-              method: 'DELETE',
-            })
-              .then(res => {
-                if (res.ok) {
-                  card.remove();
-                } else {
-                  alert('Failed to delete recipe');
-                }
-              })
-              .catch(err => console.error('Delete failed:', err));
-          });
-
-          favoritesContainer.appendChild(card);
-        });
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching favorites:', error);
-      favoritesContainer.textContent = 'Failed to load favorite recipes.';
-    });
-}
 document.addEventListener('DOMContentLoaded', () => {
   const favoritesContainer = document.getElementById('favoritesContainer');
 
