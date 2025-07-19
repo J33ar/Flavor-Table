@@ -209,5 +209,5 @@ Yes — understanding how JWTs work, especially how to protect routes using midd
 ---
 
 ## Render Link
- 
-[link][https://flavor-table-h15f.onrender.com]
+
+https://flavor-table-h15f.onrender.com
